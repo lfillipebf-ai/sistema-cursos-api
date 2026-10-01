@@ -10,5 +10,16 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+  backend:
+    build: ./backend
+    container_name: cursos-backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/cursos
+      SPRING_DATASOURCE_USERNAME: cursos
+      SPRING_DATASOURCE_PASSWORD: cursos
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
 volumes:
   postgres_data:
