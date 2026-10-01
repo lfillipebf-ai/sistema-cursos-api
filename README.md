@@ -21,3 +21,15 @@ API REST para gerenciamento de uma plataforma de cursos, desenvolvida como proje
 
 **Autor:** Luis Fillipe Backer Faria  
 **GitHub:** lfillipebf-ai
+
+## Endpoints principais
+- GET/POST `/api/instrutores`
+- GET/POST `/api/alunos`
+- GET `/api/cursos`
+- GET `/api/cursos/ativos`
+- POST `/api/cursos`
+- PATCH `/api/cursos/{id}/status?ativo=true|false`
+- GET `/api/matriculas`
+- GET `/api/matriculas/ativas`
+- POST `/api/matriculas?alunoId=1&cursoId=1`
+- PATCH `/api/matriculas/{id}/status?valor=CONCLUIDA`
