@@ -1,0 +1,3 @@
+package br.com.luis.cursos.controller;
+import br.com.luis.cursos.model.Aluno; import br.com.luis.cursos.repository.AlunoRepository; import jakarta.validation.Valid; import org.springframework.http.HttpStatus; import org.springframework.web.bind.annotation.*; import java.util.List;
+@RestController @RequestMapping("/api/alunos") public class AlunoController{ private final AlunoRepository repo; public AlunoController(AlunoRepository repo){this.repo=repo;} @GetMapping public List<Aluno> listar(){return repo.findAll();} @PostMapping @ResponseStatus(HttpStatus.CREATED) public Aluno criar(@Valid @RequestBody Aluno a){return repo.save(a);} }

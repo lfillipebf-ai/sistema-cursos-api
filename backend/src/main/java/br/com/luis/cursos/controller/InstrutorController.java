@@ -1,0 +1,3 @@
+package br.com.luis.cursos.controller;
+import br.com.luis.cursos.model.Instrutor; import br.com.luis.cursos.repository.InstrutorRepository; import jakarta.validation.Valid; import org.springframework.http.HttpStatus; import org.springframework.web.bind.annotation.*; import java.util.List;
+@RestController @RequestMapping("/api/instrutores") public class InstrutorController{ private final InstrutorRepository repo; public InstrutorController(InstrutorRepository repo){this.repo=repo;} @GetMapping public List<Instrutor> listar(){return repo.findAll();} @PostMapping @ResponseStatus(HttpStatus.CREATED) public Instrutor criar(@Valid @RequestBody Instrutor i){return repo.save(i);} }
